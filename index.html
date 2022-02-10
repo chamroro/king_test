@@ -22,11 +22,12 @@
         <h1 class="mt-5 text-center">나랑 꼭 닮은 세렝게티 동물은?</h1>
         <button type="button" class="btn btn-primary mt-5" onclick="start();">테스트 시작하기</button>
     </article>
-    <article class="question">
+    <article class="questions">
         <div class="progress">
             <div class="progress-bar" role="progressbar" style="width: 100/12*num"  ></div>
           </div>
-        <h2 id="title" class='text-center mt-5'>문제</h2>
+        <h3 id="title" class='text-left mt-5'>번호</h3>
+        <h2 id="question" class='text-left mt-5'>문제</h2>
         <input id="type" type="hidden" value="EI">
         <button id="A" type="button" class="btn btn-primary mt-5" onclick="">테스트 시작하기</button>
         <button id="B" type="button" class="btn btn-primary mt-5" onclick="">테스트 시작하기</button>
@@ -34,7 +35,7 @@
     <article class="result">
         <img id="img" src="lion.jpg" class="rounded-circle" alt="...">
       
-        <h2 id="animal" class="text-center mt-5">동물이름</h2>
+        <h2 id="result_title" class="text-center mt-5">동물이름</h2>
         <h3 id="desc" class="text-center mt-5">설명</h3>
         <!-- Go to www.addthis.com/dashboard to customize your tools --> 
         <div class="share addthis_inline_share_toolbox_5wbq"></div>
@@ -58,43 +59,43 @@
     <script>
         var num =1;
         var q = {
-            1: {"title": "문제 1번", "type":"EI", "A":"E", "B": "I"},
-            2: {"title": "문제 2번", "type":"EI", "A":"E", "B": "I"},
-            3: {"title": "문제 3번", "type":"EI", "A":"E", "B": "I"},
-            4: {"title": "문제 4번", "type":"SN", "A":"S", "B": "N"},
-            5: {"title": "문제 5번", "type":"SN", "A":"S", "B": "N"},
-            6: {"title": "문제 6번", "type":"SN", "A":"S", "B": "N"},
-            7: {"title": "문제 7번", "type":"TF", "A":"T", "B": "F"},
-            8: {"title": "문제 8번", "type":"TF", "A":"T", "B": "F"},
-            9: {"title": "문제 9번", "type":"TF", "A":"T", "B": "F"},
-            10: {"title": "문제 10번", "type":"JP", "A":"J", "B": "P"},
-            11: {"title": "문제 11번", "type":"JP", "A":"J", "B": "P"},
-            12: {"title": "문제 12번", "type":"JP", "A":"J", "B": "P"},
+            1: {"title": "Q. 01", "question":"드디어 개그맨/개그우먼이 되었다!\n동기들과의 첫만남에서 나의 모습은?", "type":"EI", "A":"옆사람에게 내가 먼저 말을 건다.", "B": "상대가 먼저 말을 걸 때까지 가만히 있는다."},
+            2: {"title": "Q. 02", "question":"스케줄이 없는 휴일,\n나라면 어떻게 보낼까?", "type":"EI", "A":"당장 친구 불러! 친구들과 1박 2일 여행", "B": "혼자가 최고야! 집에서 뒹굴뒹굴"},
+            3: {"title": "Q. 03", "question":"새로운 예능 프로그램 섭외가 들어왔다!\n어떤 프로그램에 출연할까?", "type":"EI", "A":"런닝맨같은 활동성 많은 야외 촬영 예능", "B": "나혼자산다같은 집에서 놀고먹는 예능"},
+            4: {"title": "Q. 04", "question":"이번주 녹화에서 쓸 개그 소재가 떠올랐다!\n이때 내가 떠올린 소재는?", "type":"SN", "A":"내 경험에서 우러나온 소재", "B": "내 머릿속에서 나온 소재"},
+            5: {"title": "Q. 05", "question":"코빅에서 새 코너를 하게 되었다!\n내가 선호하는 회의 방식은?", "type":"SN", "A":"일단 확 꽂히는 유행어부터 던진다.", "B": "일단 전체적인 컨셉부터 먼저 짠다."},
+            6: {"title": "Q. 06", "question":"라디오스타에 게스트로 나가게 되었다!\n재미있는 썰을 풀게 되었는데 나라면...", "type":"SN", "A":"과장 없이 경험한 그대로 썰을 푼다.", "B": "각종 MSG와 몸짓을 섞어가며 썰을 푼다."},
+            7: {"title": "Q. 07", "question":"동기가 나에게 요즘 슬럼프인 것 같다며 고민을\n털어놓는다. 이때 나의 반응은?", "type":"TF", "A":"최근에 무슨 일 있었어? 뭐 때문에 슬럼프인 것 같아? ", "B": "아이고 그랬구나... 많이 힘들지? (토닥토닥)"},
+            8: {"title": "Q. 08", "question":"“이 사람은 노력도 많이 안 하는 것 같은데 하는 코너마다 잘된다.”라는 댓글을 보았다.\n이 댓글을 본 나의 기분은?", "type":"TF", "A":"(정색) 뭐래... 근데 내가 잘하긴 하지...ㅋ", "B": "내가 노력한 건 왜 몰라주지...ㅠ_____ㅠ"},
+            9: {"title": "Q. 09", "question":"곧 코빅 녹화 시작이다!\n그런데 한 명이 늦을 것 같다고 연락이 왔다.\n다음 중 내가 더 짜증나는 사람은?", "type":"TF", "A":"미안하다고 계속 사과는 하는데 왜 늦는지는 절대 말 안 해주는 이용진", "B": "늦는 이유는 알려주는데 죽어도 미안하다고 안 하는 이진호"},
+            10: {"title": "Q. 10", "question":"여차저차 시작된 녹화...!\n다음 중 내가 더 선호하는 상황은?",  "type":"JP", "A":"그래도 웬만하면 대본대로 하는 게 편하지~", "B": "대본대로 가면 노잼이야! 애드리브 빵빵!"},
+            11: {"title": "Q. 11", "question":"녹화가 끝나고 친한 개그맨이 번개약속을 잡자고 한다. 이때 나의 속마음은?",  "type":"JP", "A":"(아... 놀고 싶긴 한데... 이러면 내가 세워둔 계획이랑 어긋나는데...)", "B": "(번개는 나의 일상! 좋지~)"},
+            12: {"title": "Q. 12", "question":"친한 개그맨들끼리 제주도로 놀러가기로 했다!\n내가 더 선호하는 계획은?",  "type":"JP", "A":"시간대별로 착착! 동선은 이미 내 머릿속에...", "B": "무계획도 계획! 당일날 마음 가는대로~"},
             
         }
 
         var result = {
-            "ESTJ" : {"animal": "하마", "desc":"설명이다", "img":"lion.jpg"},
-            "ESTP" : {"animal": "오랑우탄", "desc":"설명이다", "img":"lion.jpg"},
-            "ESFJ" : {"animal": "얼룩말", "desc":"설명이다", "img":"lion.jpg"},
-            "ESFP" : {"animal": "갱얼쥐", "desc":"설명이다", "img":"lion.jpg"},
-            "ENTJ" : {"animal": "고앵이", "desc":"설명이다", "img":"lion.jpg"},
-            "ENTP" : {"animal": "사자", "desc":"설명이다", "img":"lion.jpg"},
-            "ENFJ" : {"animal": "호랑이", "desc":"설명이다", "img":"lion.jpg"},
-            "ENFP" : {"animal": "치타", "desc":"설명이다", "img":"lion.jpg"},
-            "ISTJ" : {"animal": "원숭이", "desc":"설명이다", "img":"lion.jpg"},
-            "ISTP" : {"animal": "말", "desc":"설명이다", "img":"lion.jpg"},
-            "ISFJ" : {"animal": "소", "desc":"설명이다", "img":"lion.jpg"},
-            "ISFP" : {"animal": "돼지", "desc":"설명이다", "img":"lion.jpg"},
-            "INTJ" : {"animal": "병아리", "desc":"설명이다", "img":"lion.jpg"},
-            "INTP" : {"animal": "오리", "desc":"설명이다", "img":"lion.jpg"},
-            "INFJ" : {"animal": "하이에나", "desc":"설명이다", "img":"lion.jpg"},
-            "INFP" : {"animal": "여우", "desc":"설명이다", "img":"lion.jpg"},
+            "ESTJ" : {"result_title": "하마", "desc":"설명이다", "img":"lion.jpg"},
+            "ESTP" : {"result_title": "오랑우탄", "desc":"설명이다", "img":"lion.jpg"},
+            "ESFJ" : {"result_title": "얼룩말", "desc":"설명이다", "img":"lion.jpg"},
+            "ESFP" : {"result_title": "갱얼쥐", "desc":"설명이다", "img":"lion.jpg"},
+            "ENTJ" : {"result_title": "고앵이", "desc":"설명이다", "img":"lion.jpg"},
+            "ENTP" : {"result_title": "사자", "desc":"설명이다", "img":"lion.jpg"},
+            "ENFJ" : {"result_title": "호랑이", "desc":"설명이다", "img":"lion.jpg"},
+            "ENFP" : {"result_title": "치타", "desc":"설명이다", "img":"lion.jpg"},
+            "ISTJ" : {"result_title": "원숭이", "desc":"설명이다", "img":"lion.jpg"},
+            "ISTP" : {"result_title": "말", "desc":"설명이다", "img":"lion.jpg"},
+            "ISFJ" : {"result_title": "소", "desc":"설명이다", "img":"lion.jpg"},
+            "ISFP" : {"result_title": "돼지", "desc":"설명이다", "img":"lion.jpg"},
+            "INTJ" : {"result_title": "병아리", "desc":"설명이다", "img":"lion.jpg"},
+            "INTP" : {"result_title": "오리", "desc":"설명이다", "img":"lion.jpg"},
+            "INFJ" : {"result_title": "하이에나", "desc":"설명이다", "img":"lion.jpg"},
+            "INFP" : {"result_title": "여우", "desc":"설명이다", "img":"lion.jpg"},
         }
 
         function start(){
             $(".start").hide();
-            $(".question").show();
+            $(".questions").show();
             next();
         }
         $("#A").click(function(){
@@ -108,7 +109,7 @@
         })
         function next(){
             if(num==13){
-                $(".question").hide();
+                $(".questions").hide();
                 $(".result").show();
                 var mbti = '';
                 $("#EI").val() > 1 ? mbti += 'E' : mbti += 'I';
@@ -117,12 +118,13 @@
                 $("#JP").val() > 1 ? mbti += 'J' : mbti += 'P';
                 alert(mbti);
                 $("#img").attr("src",result[mbti]['img']);
-                $("#animal").html(result[mbti]['animal']);
+                $("#result_title").html(result[mbti]['result_title']);
                 $("#desc").html(result[mbti]['desc']);
 
 
             } else {
                 $("#title").html(q[num]['title']);
+                $("#question").html(q[num]['question']);
                 $("#type").val(q[num]["type"]);
                 $("#A").html(q[num]["A"]);
                 $("#B").html(q[num]["B"]);
